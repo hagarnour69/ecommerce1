@@ -1,0 +1,42 @@
+<section class="mt-5 py-5 ">
+  <div class="container">
+    <h1 class="text-center text-main fw-bold mb-3">All brands</h1>
+    <div class="row g-3">
+      @for (Brand of Brands; track Brand._id) {
+      <div class="col-md-4 p-3">
+        <div class="product p-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getspecificBrand(Brand._id)">
+          <img [src]="Brand.image" [alt]="Brand.name" class="w-100" />
+          <hr />
+          <h2 class="text-center text-main fw-bolder">{{ Brand.name }}</h2>
+        </div>
+      </div>
+
+      }
+    </div>
+  <div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{SBrand.name}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h3 class="text-main fw-bold">{{SBrand.name}}</h3>
+          </div>
+          <img [src]="SBrand.image" alt="" class="w-75">
+
+        </div>
+       
+      </div>
+     
+    </div>
+  </div>
+</div>
+  </div>
+  </div>
+</section>

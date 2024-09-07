@@ -1,0 +1,18 @@
+.Item:hover
+{
+   
+    transform: scaleX(1.02);
+    .images
+    {
+        display: block !important;
+
+    }
+}
+.Item
+{
+transition: transform 1.1s;
+}
+.images
+{
+    transition: display 1s;
+}

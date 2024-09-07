@@ -1,0 +1,120 @@
+<section class="Register  py-5">
+  <div class="container w-75 py-4">
+    <h1 class="my-4 h2 fw-bolder">Register Now :</h1>
+    <form [formGroup]="register" (ngSubmit)="registerSubmit()">
+      <div class="mb-3">
+        <label for="name" class="mb-1">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name "
+          placeholder="Your Name "
+          class="form-control"
+          formControlName="name"
+        />
+        @if (register.get("name")?.errors &&( register.get("name")?.touched || register.get("name")?.dirty)) {
+        <div class="alert alert-danger w-100 p-2 mt-2">
+          @if (register.get("name")?.getError('required')) {
+          <p class="m-0">name is required</p>
+          } @else if (register.get("name")?.getError('minLength')) {
+          <p class="m-0">name min length is 3</p>
+          } @else if (register.get("name")?.getError('maxLength')) {
+          <p class="m-0">name max length is 20</p>
+          }
+        </div>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="Email" class="mb-1">Email</label>
+        <input
+          type="email"
+          id="Email"
+          name="Email "
+          placeholder="Your Email "
+          class="form-control"
+          formControlName="email"
+        />
+        @if (register.get("email")?.errors && (register.get("email")?.touched ||register.get("email")?.dirty )) {
+        <div class="alert alert-danger w-100 p-2 mt-2">
+          @if (register.get("email")?.getError('required')) {
+          <p class="m-0">email is required</p>
+          } @else if (register.get("email")?.getError('email')) {
+          <p class="m-0">email pattern is inavalid</p>
+          }
+        </div>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="mb-1">phone</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone "
+          placeholder="Your phone "
+          class="form-control"
+          formControlName="phone"
+        />
+        @if (register.get("phone")?.errors && (register.get("phone")?.touched ||register.get("phone")?.dirty )) {
+        <div class="alert alert-danger w-100 p-2 mt-2">
+          @if (register.get("phone")?.getError('required')) {
+          <p class="m-0">phone is required</p>
+          }
+        </div>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="Password" class="mb-1">Password</label>
+        <input
+          type="password"
+          id="Password"
+          name="Password "
+          placeholder="Your Password "
+          class="form-control"
+          formControlName="password"
+        />
+        @if (register.get("password")?.errors &&
+        (register.get("password")?.dirty ||register.get("password")?.touched)) {
+        <div class="alert alert-danger w-100 p-2 mt-2">
+          @if (register.get("password")?.getError('required')) {
+          <p class="m-0">password is required</p>
+          } @else if (register.get("password")?.getError('pattern')) {
+          <ul>
+            <li>Start with a letter (either uppercase or lowercase).</li>
+            <li>Be between 6 and 9 characters in total.</li>
+            <li>Can only contain letters (A-Z or a-z) and numbers (0-9)</li>
+          </ul>
+          }
+        </div>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="RePassword" class="mb-1">RePassword</label>
+        <input
+          type="password"
+          id="RePassword"
+          name="RePassword "
+          placeholder=" RePassword "
+          class="form-control"
+          formControlName="rePassword"
+        />
+        @if (register.getError('mismatch')&& (register.get('rePassword')?.touched||register.get('rePassword')?.dirty)) {
+            <div class="alert alert-danger w-100 p-2 mt-2">
+                
+                <p class="m-0">Passwords doesnt match </p>
+                
+              </div>
+        }
+      </div>
+      
+      <button class="btn btn-main ms-auto d-block" [disabled]="register.invalid || isloading">Register
+       @if (isloading) {
+        <span><i class="fas fa-spin fa-spinner"></i></span>
+       }
+      </button>
+      @if (errorMsg) 
+      {
+        <div class=" p-2 text-center"><p class="text-danger fw-bold">{{errorMsg}}</p></div>
+      }
+    </form>
+  </div>
+</section>

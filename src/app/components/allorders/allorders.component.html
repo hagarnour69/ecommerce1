@@ -1,0 +1,24 @@
+<section class="pt-5 mt-5">
+  <div class="container h-100">
+    <h2>Your Orders</h2>
+
+    @for (item of orders; track $index) {
+
+    <div class="cart-items">
+      @for (item of orders; track item._id) {
+      <div class="row align-items-center">
+        <ul>
+         <span class="text-main fw-bold">shipping info <i class="fa-solid fa-house"></i>:</span>          <li>{{item.shippingAddress.city }}</li>
+          <li>{{item.shippingAddress.phone }}</li>
+          <li>{{item.shippingAddress.details }}</li>
+        </ul>
+        <p><span class="text-main fw-bold">total price <i class="fa-solid fa-money-bill"></i> :</span> {{ item.totalOrderPrice }}</p>
+        <p><span class="text-main fw-bold">Payment Method  <i class="fa-solid fa-money-bill"></i> :</span>{{ item.paymentMethodType }}</p>
+
+      </div>
+      <hr />
+      }
+    </div>
+    }
+  </div>
+</section>

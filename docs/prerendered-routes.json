@@ -1,0 +1,14 @@
+{
+  "routes": [
+    "/",
+    "/allorders",
+    "/Brand",
+    "/cart",
+    "/categories",
+    "/forgot",
+    "/home",
+    "/login",
+    "/product",
+    "/register"
+  ]
+}

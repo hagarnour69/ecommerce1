@@ -1,0 +1,21 @@
+<section class="my-5 py-3">
+    <div class="container">
+      <h2 class="fw-bold text-main my-4">Shipping Address</h2>
+      <form action="" [formGroup]="orders" (ngSubmit)="orderSubmit()">
+        <div class="my-1">
+          <label for="details">Details</label>
+          <textarea name="details" id="details" class="form-control"  formControlName="details" rows="4" style="height: 100px; resize: none;" ></textarea>
+        </div>
+        <div class="my-1">
+          <label for="phone">Phone</label>
+          <input name="phone" id="phone" class="form-control" type="tel" formControlName="phone"  />
+        </div>
+        <div class="my-1">
+          <label for="city">City</label>
+          <input name="city" id="city" class="form-control" type="text" formControlName="city"/>
+        </div>
+        <button class="btn-main my-1" >Checkout</button>
+      </form>
+    </div>
+  </section>
+  
